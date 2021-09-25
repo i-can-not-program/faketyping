@@ -3,21 +3,27 @@ from time import sleep
 import sys
 import argparse
 
-string = ""
-wait_time = ""
-while len(string) == 0:
-    string = input("Enter a string to be typed: ")
-while True:
-    try:
-        wait_time = float(input("How long should it wait between characters: "))
-    except ValueError:
-        print("ValueError occurred! Your input is not a float!")
-        continue
-    else:
-        break
-chars = list(string)
-sleep(wait_time)
-for char in chars:
-    print(char, end="", flush=True)
-    sleep(wait_time)
-print()
+# Set up argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("string", type=str, nargs="?",
+                    help="The string that will be typed.")
+parser.add_argument("-n", "--interval", type=float, default=0.2,
+                    help="The interval between typing characters")
+args = parser.parse_args()
+
+
+# Create fake_type function
+def fake_type(string):
+    chars = list(string)
+    for char in chars:
+        sleep(args.interval)
+        print(char, end="", flush=True)
+
+
+# If the string argument is not specified, read from stdin
+if not args.string:
+    for line in sys.stdin:
+        fake_type(line)
+else:
+    # Type from string argument
+    fake_type(args.string + "\n")
