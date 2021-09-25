@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 from time import sleep
-import sys
-import argparse
 
-string = ""
-wait_time = ""
+string, wait_time = "", ""
 while len(string) == 0:
     string = input("Enter a string to be typed: ")
 while True:
