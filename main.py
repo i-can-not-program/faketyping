@@ -5,7 +5,7 @@ import argparse
 
 # Set up argparse
 parser = argparse.ArgumentParser()
-parser.add_argument("string", type=str, nargs="?",
+parser.add_argument("string", type=str, nargs="*",
                     help="The string that will be typed.")
 parser.add_argument("-n", "--interval", type=float, default=0.2,
                     help="The interval between typing characters")
@@ -26,4 +26,7 @@ if not args.string:
         fake_type(line)
 else:
     # Type from string argument
-    fake_type(args.string + "\n")
+    for word in args.string:
+        fake_type(word + " ")
+    # Print to add newline at the end
+    print()
