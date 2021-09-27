@@ -1,6 +1,9 @@
 # faketyping
+
 Python program of which the output looks similar to typing.
+
 ## Help
+
 ```none
 usage: faketyping [-h] [-n INTERVAL] [string ...]
 
@@ -15,4 +18,13 @@ optional arguments:
                         The interval between typing characters
 ```
 ### Contributing
-If you have a better way of doing something, there is something wrong, it doesn't work, or you want or made a feature, open a pull request or issue.
+
+Contributions are welcome! There are a few ways you can do this:
+- You have a better way of doing something
+- There is something wrong
+- It doesn't work
+- You want or made a feature
+
+If any of these apply, open a pull request or issue.
+
+You can also come up with a better name, I don't know about these sorts of things.
