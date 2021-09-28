@@ -1,9 +1,14 @@
 # faketyping
 
 Python program of which the output looks similar to typing.
+## Running
+### Linux
 
+This is just a regular python script, and you can run it with `./main.py`.
+
+This has not been tested on any other platforms, although it should work.
 ## Help
-
+### Usage
 ```none
 usage: faketyping [-h] [-n INTERVAL] [string ...]
 
@@ -19,12 +24,11 @@ optional arguments:
 ```
 ### Contributing
 
-Contributions are welcome! There are a few ways you can do this:
-- You have a better way of doing something
-- There is something wrong
-- It doesn't work
-- You want or made a feature
+Contributions are welcome!
 
-If any of these apply, open a pull request or issue.
+Basically, 
+if you've changed the something in the repo, and it improves, fixes or adds something, open a pull request.
 
-You can also come up with a better name, I don't know about these sorts of things.
+If there's something wrong with the repo, or there's something you want, like a bug fix or a feature, open an issue.
+
+You can also come up with a better name, just tell me if anything in this repo is bad or can be improved.
