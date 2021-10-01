@@ -7,23 +7,22 @@ import random
 # Set up argparse
 parser = argparse.ArgumentParser(description="Python program of which the output looks similar to typing.")
 parser.add_argument("string", type=str, nargs="*",
-                    help="The string that will be typed. If this argument is not specified, the input will be read "
-                         "from stdin.")
+                    help="The string that will be typed. If this isn't specified, input will be read from stdin.")
 parser.add_argument("-n", "--interval", type=float, default=0.2,
                     help="The interval between typing characters.")
 parser.add_argument("-o", "--offset", type=float,
-                    help="The maximum random offset. The minimum is the same, but converted to a negative number.")
+                    help="The maximum random offset. The minimum is this, but converted to a negative number.")
 args = parser.parse_args()
 # Error if the interval is negative
 if args.interval < 0:
-    raise ValueError("interval must be a non-negative number")
+    parser.error("interval must be a non-negative number")
 # Set offset and give errors
 if args.offset is None:
     args.offset = args.interval / 2
 elif args.offset > args.interval:
-    raise ValueError("offset must be less than the interval")
+    parser.error("offset must be less than or equals to the interval")
 elif args.offset < 0 - args.interval:
-    raise ValueError("offset must be greater than the interval converted to a negative number")
+    parser.error("offset must be greater than or equals to the interval converted to a negative number")
 
 
 # Create fake_type function
@@ -38,10 +37,9 @@ def fake_type(string):
 
 # Test if the string argument is specified
 if args.string:
-    # Type from string argument
+    # Type from string argument, then print a newline (print() does it with no args)
     for word in args.string:
         fake_type(word + " ")
-    # Print to add newline at the end
     print()
 else:
     # Type each line in stdin
